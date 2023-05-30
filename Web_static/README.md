@@ -17,4 +17,4 @@ What you should learn from this project:
 #### • What are Box properties in CSS
 
 # Author
-John Evwer - @ florastick
+## John Evwer ##
