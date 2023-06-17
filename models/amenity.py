@@ -1,10 +1,17 @@
 #!/usr/bin/python3
-"""This module creates a Amenity class"""
-
+"""
+amenity module
+"""
 from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
-    """This is a class for managing amenity objects"""
+    """
+    Amenity class
+    """
 
     name = ""
+
+    def __init__(self, *args, **kwargs):
+        """Overriding constructor"""
+        super().__init__(*args, **kwargs)
