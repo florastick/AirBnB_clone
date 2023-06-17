@@ -1,10 +1,17 @@
 #!/usr/bin/python3
-"""This module creates a User class"""
-
+"""
+state module
+"""
 from models.base_model import BaseModel
 
 
 class State(BaseModel):
-    """This is the class for managing state objects"""
+    """
+    State class
+    """
 
     name = ""
+
+    def __init__(self, *args, **kwargs):
+        """Overriding constructor"""
+        super().__init__(*args, **kwargs)
