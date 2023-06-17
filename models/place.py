@@ -1,11 +1,14 @@
 #!/usr/bin/python3
-"""This module creates a Place class"""
-
+"""
+place module
+"""
 from models.base_model import BaseModel
 
 
 class Place(BaseModel):
-    """This is the class for managing place objects"""
+    """
+    Place class
+    """
 
     city_id = ""
     user_id = ""
@@ -18,3 +21,7 @@ class Place(BaseModel):
     latitude = 0.0
     longitude = 0.0
     amenity_ids = []
+
+    def __init__(self, *args, **kwargs):
+        """Overriding constructor"""
+        super().__init__(*args, **kwargs)
