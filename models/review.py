@@ -1,12 +1,19 @@
 #!/usr/bin/python3
-"""This module creates a Review class"""
-
+"""
+review module
+"""
 from models.base_model import BaseModel
 
 
 class Review(BaseModel):
-    """This is the class for managing review objects"""
+    """
+    Review class
+    """
 
     place_id = ""
     user_id = ""
     text = ""
+
+    def __init__(self, *args, **kwargs):
+        """Overriding constructor"""
+        super().__init__(*args, **kwargs)
