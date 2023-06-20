@@ -3,7 +3,7 @@
 
 import cmd
 from models.base_model import BaseModel
-from models import test_file_storage
+from models import file_storage
 import re
 import json
 
