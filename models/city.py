@@ -1,18 +1,11 @@
 #!/usr/bin/python3
-"""
-city module
-"""
+"""This module creates a User class"""
+
 from models.base_model import BaseModel
 
 
 class City(BaseModel):
-    """
-    City class
-    """
+    """Class for managing city objects"""
 
     state_id = ""
     name = ""
-
-    def __init__(self, *args, **kwargs):
-        """Overriding constructor"""
-        super().__init__(*args, **kwargs)
