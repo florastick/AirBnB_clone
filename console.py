@@ -2,7 +2,7 @@
 """Module for the entry point of the command interpreter."""
 
 import cmd
-from models.base_model import base_model
+from models.base_model import basemodel
 from models import storage
 import re
 import json
