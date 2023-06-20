@@ -1,31 +1,53 @@
 #!/usr/bin/python3
-"""
-test_user module
-"""
-from unittest import TestCase
-import pycodestyle
+"""Unittest module for the User Class."""
+
+import unittest
+from datetime import datetime
+import time
 from models.user import User
+import re
+import json
+from models.engine.file_storage import FileStorage
+import os
+from models import storage
+from models.base_model import BaseModel
 
 
-class TestUser(TestCase):
-    """
-    TestUser class
-    """
+class TestUser(unittest.TestCase):
 
-    def test_pep(self):
-        """test pep"""
-        style = pycodestyle.StyleGuide(quiet=True)
-        result = style.check_files(['models/user.py',
-                                    'tests/test_models/test_user.py'])
-        self.assertEqual(result.total_errors, 0,
-                         "Found code style errors (and warnings).")
+    """Test Cases for the User class."""
 
-    def test_module_doc(self):
-        """test module documentation"""
-        doc = __import__('models.user').__doc__
-        self.assertGreater(len(doc), 1)
+    def setUp(self):
+        """Sets up test methods."""
+        pass
 
-    def test_class_doc(self):
-        """test class documentation"""
-        doc = User.__doc__
-        self.assertGreater(len(doc), 1)
+    def tearDown(self):
+        """Tears down test methods."""
+        self.resetStorage()
+        pass
+
+    def resetStorage(self):
+        """Resets FileStorage data."""
+        FileStorage._FileStorage__objects = {}
+        if os.path.isfile(FileStorage._FileStorage__file_path):
+            os.remove(FileStorage._FileStorage__file_path)
+
+    def test_8_instantiation(self):
+        """Tests instantiation of User class."""
+
+        b = User()
+        self.assertEqual(str(type(b)), "<class 'models.user.User'>")
+        self.assertIsInstance(b, User)
+        self.assertTrue(issubclass(type(b), BaseModel))
+
+    def test_8_attributes(self):
+        """Tests the attributes of User class."""
+        attributes = storage.attributes()["User"]
+        o = User()
+        for k, v in attributes.items():
+            self.assertTrue(hasattr(o, k))
+            self.assertEqual(type(getattr(o, k, None)), v)
+
+
+if __name__ == "__main__":
+    unittest.main()
