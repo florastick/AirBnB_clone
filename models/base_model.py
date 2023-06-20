@@ -3,7 +3,7 @@
 
 import uuid
 from datetime import datetime
-from models import test_file_storage
+from models import file_storage
 
 
 class BaseModel:
